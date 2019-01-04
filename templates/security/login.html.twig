@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block authpage %}
+    <div class="masthead">
+        <h1>Sign In</h1>
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" name="_username" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="_password" placeholder="Password">
+            </div>
+
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+    </div>
+    <div class="masthead">
+        <h4 class="cover-heading ">Do not have account yet?</h4>
+        <p class="lead"><a href="{{ path('app_register') }}" class="btn btn-success">Sign Up</a></p>
+    </div>
+{% endblock %}

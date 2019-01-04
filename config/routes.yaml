@@ -1,0 +1,14 @@
+homepage:
+  path: /
+  controller: App\Controller\HomepageController:index
+
+app_logout:
+  path: /logout
+
+login:
+  path: /login
+  controller: App\Controller\SecurityController:login
+
+pages_automatization:
+  path: /automatization/pages
+  controller: App\Controller\PagesAutomatizationController:index
