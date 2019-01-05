@@ -31,10 +31,20 @@ class FacebookAuthController extends AbstractController
         return $this->redirectToRoute("facebook_auth");
     }
 
-    public function userTest(User $user)
+    /**
+     * @param User $facebookUser
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function userTest(User $facebookUser)
     {
+        $user = $facebookUser->getMe();
+
+        if (!empty($user)) {
+            $user = $user->asArray();
+        }
+
         return $this->render('facebook_auth/userTest.html.twig', [
-            'user' => $user->getMe()->asArray()
+            'user' => $user
         ]);
     }
 }

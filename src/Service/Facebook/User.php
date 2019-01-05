@@ -7,7 +7,7 @@ use Facebook\Exceptions\FacebookSDKException;
 
 class User extends FacebookService
 {
-    public function getMe()
+    public function getMe(): ?\Facebook\GraphNodes\GraphUser
     {
         try {
             // Returns a `Facebook\FacebookResponse` object
@@ -16,14 +16,16 @@ class User extends FacebookService
 
             return $response->getGraphUser();
         } catch (\Facebook\Exceptions\FacebookResponseException $e) {
-            dump($e);
-            echo '1Graph returned an error: ' . $e->getMessage();
-            exit;
+            $this->session->getFlashBag()
+                ->add("error", "Graph Error: " . $e->getMessage());
         } catch (FacebookSDKException $e) {
-            dump($e);
-            echo 'Facebook SDK returned an error: ' . $e->getMessage();
-            exit;
+            $this->session->getFlashBag()
+                ->add("error", "SDK Error: " . $e->getMessage());
         }
 
+        $this->session->getFlashBag()
+            ->add("error", "Could not get user");
+
+        return null;
     }
 }

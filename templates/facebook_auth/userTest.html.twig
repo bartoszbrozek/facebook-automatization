@@ -6,6 +6,8 @@
     <h1 class="cover-heading">Facebook User Test</h1>
     <p class="lead">Data stuff for tests</p>
 
-    <p><b>ID: </b>{{ user.id }}</p>
-    <p><b>Name: </b>{{ user.name }}</p>
+    {% if user %}
+        <p><b>ID: </b>{{ user.id }}</p>
+        <p><b>Name: </b>{{ user.name }}</p>
+    {% endif %}
 {% endblock %}

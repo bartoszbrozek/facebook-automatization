@@ -67,12 +67,18 @@
                     </ul>
                 </div>
             </nav>
-
-
         </div>
     </header>
 
     <main role="main" class="">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
         {% if app.user == null %}
             {% block authpage %}{% endblock %}
         {% else %}

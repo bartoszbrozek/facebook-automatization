@@ -43,7 +43,7 @@ body {
 }
 
 .dropdown-menu {
-    border:none;
+    border: none;
     border-radius: 0;
 }
 
@@ -57,13 +57,19 @@ body {
 }
 
 .invalid-feedback {
-    color:white;
+    color: white;
 }
 
 .form-control {
     background-clip: padding-box !important;
     border: 1px solid #ffffff00 !important;
     border-radius: 0;
+}
+
+.alert-error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
 }
 
 .btn {
