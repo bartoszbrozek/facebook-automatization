@@ -23,9 +23,6 @@ class User extends FacebookService
                 ->add("error", "SDK Error: " . $e->getMessage());
         }
 
-        $this->session->getFlashBag()
-            ->add("error", "Could not get user");
-
         return null;
     }
 }

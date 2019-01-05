@@ -78,12 +78,6 @@ class FacebookService
 
         if (!isset($accessToken)) {
             if ($helper->getError()) {
-                header('HTTP/1.0 401 Unauthorized');
-                echo "Error: " . $helper->getError() . "\n";
-                echo "Error Code: " . $helper->getErrorCode() . "\n";
-                echo "Error Reason: " . $helper->getErrorReason() . "\n";
-                echo "Error Description: " . $helper->getErrorDescription() . "\n";
-
                 $this->session->getFlashBag()
                     ->add("error", "Access Token Error: 
                     Error: {$helper->getError()}
@@ -141,7 +135,7 @@ class FacebookService
     {
         $helper = $this->fb->getRedirectLoginHelper();
 
-        $permissions = ['email'];
+        $permissions = ['email, manage_pages, publish_pages'];
         return $helper->getLoginUrl($this->authLink, $permissions);
     }
 }

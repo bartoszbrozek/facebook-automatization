@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}YEAH{% endblock %}
+
+{% block body %}
+    <h1 class="cover-heading">TESTS</h1>
+
+    <p><a href="{{ path("test_create_page") }}" class="btn btn-dark">Create Test Page</a></p>
+    <p><a href="{{ path("test_create_post") }}" class="btn btn-dark">Create Test Post</a></p>
+
+    {% if responseData is defined %}
+        <p><b>Results</b></p>
+        <p>{{ dump(responseData) }}</p>
+    {% endif %}
+{% endblock %}

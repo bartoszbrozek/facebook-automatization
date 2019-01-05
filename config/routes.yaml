@@ -24,3 +24,16 @@ facebook_auth_callback:
 facebook_usertest:
   path: /facebook/usertest
   controller: App\Controller\FacebookAuthController:userTest
+
+# Tests
+test:
+  path: /facebook/test
+  controller: App\Controller\PagesAutomatizationController:test
+
+test_create_page:
+  path: /facebook/test_create_page
+  controller: App\Controller\PagesAutomatizationController:createTestPage
+
+test_create_post:
+  path: /facebook/test_create_post
+  controller: App\Controller\PagesAutomatizationController:createTestPost
