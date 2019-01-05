@@ -12,3 +12,15 @@ login:
 pages_automatization:
   path: /automatization/pages
   controller: App\Controller\PagesAutomatizationController:index
+
+facebook_auth:
+  path: /facebook/auth
+  controller: App\Controller\FacebookAuthController:index
+
+facebook_auth_callback:
+  path: /facebook/authorize
+  controller: App\Controller\FacebookAuthController:authorize
+
+facebook_usertest:
+  path: /facebook/usertest
+  controller: App\Controller\FacebookAuthController:userTest

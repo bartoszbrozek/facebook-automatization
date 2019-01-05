@@ -26,3 +26,15 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Service\FacebookService:
+        arguments:
+            $appid: "1629427740536640"
+            $appSecret: "a82f637bdfa3dd842fe3c504ac664c87"
+            $defaultGraphVersion: "v3.2"
+            $authLink: "https://fbautomatization.com/facebook-automatization/public/index.php/facebook/authorize"
+
+    App\Service\Facebook\User:
+        parent: App\Service\FacebookService
+        public: true
+        autowire: true
+        autoconfigure: false
